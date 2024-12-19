@@ -58,8 +58,8 @@ module AWS
           @root_context.backtrace = AsyncBacktrace.create(nil, 3)
           @root_error_handler = BeginRescueEnsure.new(:parent => @root_context)
           begin
-            @root_error_handler.begin lambda { block.call if ! block.nil? }
-            @root_error_handler.rescue(Exception, lambda { |e| raise e })
+            @root_error_handler.begin proc { block.call if block_given? }
+            @root_error_handler.rescue(Exception, proc { |e| raise e })
           end
           @root_context << @root_error_handler
         end

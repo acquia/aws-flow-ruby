@@ -25,7 +25,7 @@ module AWS
 
       def get_single_decision_events
         @current_decision_data = @single_decision_events_iterator.next
-        return @current_decision_data.decision_events
+        @current_decision_data.decision_events
       end
 
       def get_replay_current_time_millis

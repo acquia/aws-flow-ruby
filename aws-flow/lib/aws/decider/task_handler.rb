@@ -59,7 +59,7 @@ module AWS
         context_data = decider.decision_helper.workflow_context_data
         response[:execution_context] = context_data.to_s unless context_data.nil?
         response[:decisions] = decisions unless decisions.nil?
-        return response
+        response
       end
 
       # Creates a new asynchronous decider.
