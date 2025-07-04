@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/aws-flow"
+    schedule:
+      interval: "weekly"
+    pull-request-branch-name:
+      separator: "-"
+    groups:
+      bundler-dependencies:
+        patterns:
+          - "*"
